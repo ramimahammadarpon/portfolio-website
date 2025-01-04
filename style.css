@@ -69,6 +69,7 @@ body {
     width: 345px;
 }
 .btn-box a {
+    position: relative;
     height: 100%;
     width: 150px;
     display: inline-flex;
@@ -82,8 +83,33 @@ body {
     text-decoration: none;
     font-weight: 600;
     letter-spacing: 1px;
+    z-index: 1;
+    overflow: hidden;
 }
 .btn-box a:nth-child(2) {
     background: transparent;
     color: #00abf0;
+}
+.btn-box a:nth-child(2):hover {
+    color: #081b29;
+}
+.btn-box a:nth-child(2)::before {
+    background: #00abf0;
+}
+.btn-box a:hover {
+    color: #00abf0;
+}
+.btn-box a::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #081b29;
+    z-index: -1;
+    transition: .5s;
+}
+.btn-box a:hover::before {
+    width: 100%;
 }
